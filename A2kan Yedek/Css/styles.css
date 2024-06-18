@@ -1,0 +1,433 @@
+/* Genel stil ayarları */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url();
+}
+
+header {
+    background-color: #333;
+    color: #2c2c2c;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    background-color: cornflowerblue;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.features {
+    padding: 2rem;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Geçiş animasyonları */
+a {
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: cornflowerblue;
+}
+
+/* Tıklama animasyonları */
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: cornflowerblue;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    display: block;
+    --width-of-switch: 3.5em;
+    --height-of-switch: 2em;
+    /* size of sliding icon -- sun and moon */
+    --size-of-icon: 1.4em;
+    /* it is like a inline-padding of switch */
+    --slider-offset: 0.3em;
+    position: relative;
+    width: var(--width-of-switch);
+    height: var(--height-of-switch);
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f4f4f5;
+    transition: .4s;
+    border-radius: 30px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: var(--size-of-icon,1.4em);
+    width: var(--size-of-icon,1.4em);
+    border-radius: 20px;
+    left: var(--slider-offset,0.3em);
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(40deg,#ff0080,cornflowerblue 70%);
+    ;
+   transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #303136;
+  }
+  
+  input:checked + .slider:before {
+    left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
+    background: #303136;
+    /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+    box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 1em 3.3em;
+    cursor: pointer;
+    transform: perspective(200px) rotateX(15deg);
+    color: white;
+    font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(
+      0deg,
+      rgba(63, 94, 251, 1) 0%,
+      rgba(70, 135, 252, 1) 100%
+    );
+    box-shadow: rgba(63, 94, 251, 0.2) 0px 40px 29px 0px;
+    will-change: transform;
+    transition: all 0.3s;
+    border-bottom: 2px solid rgba(70, 135, 252, 1);
+  }
+  
+  button:hover {
+    transform: perspective(180px) rotateX(30deg) translateY(2px);
+  }
+  
+  button:active {
+    transform: perspective(170px) rotateX(36deg) translateY(5px);
+  }
+
+  /* css/styles.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9999;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader {
+  --blue: #5C86FF;
+  --blue-dark: #275EFE;
+  --key: #fff;
+  --paper: #EEF0FD;
+  --text: #D3D4EC;
+  --tool: #FBC56C;
+  --duration: 3s;
+  position: relative;
+  -webkit-animation: bounce05 var(--duration) linear infinite;
+  animation: bounce05 var(--duration) linear infinite;
+}
+
+.loader .slide {
+  width: 92px;
+  height: 20px;
+  border-radius: 3px;
+  margin-left: 14px;
+  transform: translateX(14px);
+  background: linear-gradient(var(--blue), var(--blue-dark));
+  -webkit-animation: slide05 var(--duration) ease infinite;
+  animation: slide05 var(--duration) ease infinite;
+}
+
+.loader .slide:before, .loader .slide:after,
+.loader .slide i:before {
+  content: "";
+  position: absolute;
+  background: var(--tool);
+}
+
+.loader .slide:before {
+  width: 2px;
+  height: 8px;
+  top: 6px;
+  left: 100%;
+}
+
+.loader .slide:after {
+  left: 94px;
+  top: 3px;
+  height: 14px;
+  width: 6px;
+  border-radius: 3px;
+}
+
+.loader .slide i {
+  display: block;
+  position: absolute;
+  right: 100%;
+  width: 6px;
+  height: 4px;
+  top: 4px;
+  background: var(--tool);
+}
+
+.loader .slide i:before {
+  right: 100%;
+  top: -2px;
+  width: 4px;
+  border-radius: 2px;
+  height: 14px;
+}
+
+.loader .paper {
+  position: absolute;
+  left: 24px;
+  top: -26px;
+  width: 40px;
+  height: 46px;
+  border-radius: 5px;
+  background: var(--paper);
+  transform: translateY(46px);
+  -webkit-animation: paper05 var(--duration) linear infinite;
+  animation: paper05 var(--duration) linear infinite;
+}
+
+.loader .paper:before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 7px;
+  border-radius: 2px;
+  height: 4px;
+  transform: scaleY(0.8);
+  background: var(--text);
+  box-shadow: 0 12px 0 var(--text), 0 24px 0 var(--text), 0 36px 0 var(--text);
+}
+
+.loader .keyboard {
+  width: 120px;
+  height: 56px;
+  margin-top: -10px;
+  z-index: 1;
+  position: relative;
+}
+
+.loader .keyboard:before, .loader .keyboard:after {
+  content: "";
+  position: absolute;
+}
+
+.loader .keyboard:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 7px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  transform: perspective(10px) rotateX(2deg);
+  transform-origin: 50% 100%;
+}
+
+.loader .keyboard:after {
+  left: 2px;
+  top: 25px;
+  width: 11px;
+  height: 4px;
+  border-radius: 2px;
+  box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  -webkit-animation: keyboard05 var(--duration) linear infinite;
+  animation: keyboard05 var(--duration) linear infinite;
+}
+
+@keyframes bounce05 {
+  85%, 92%, 100% {
+    transform: translateY(0);
+  }
+
+  89% {
+    transform: translateY(-4px);
+  }
+
+  95% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes slide05 {
+  5% {
+    transform: translateX(14px);
+  }
+
+  15%, 30% {
+    transform: translateX(6px);
+  }
+
+  40%, 55% {
+    transform: translateX(0);
+  }
+
+  65%, 70% {
+    transform: translateX(-4px);
+  }
+
+  80%, 89% {
+    transform: translateX(-12px);
+  }
+
+  100% {
+    transform: translateX(14px);
+  }
+}
+
+@keyframes paper05 {
+  5% {
+    transform: translateY(46px);
+  }
+
+  20%, 30% {
+    transform: translateY(34px);
+  }
+
+  40%, 55% {
+    transform: translateY(22px);
+  }
+
+  65%, 70% {
+    transform: translateY(10px);
+  }
+
+  80%, 85% {
+    transform: translateY(0);
+  }
+
+  92%, 100% {
+    transform: translateY(46px);
+  }
+}
+
+@keyframes keyboard05 {
+  5%, 12%, 21%, 30%, 39%, 48%, 57%, 66%, 75%, 84% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+
+  9% {
+    box-shadow: 15px 2px 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+
+  18% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 2px 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+
+  27% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 12px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+
+  36% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 12px 0 var(--key), 60px 12px 0 var(--key), 68px 12px 0 var(--key), 83px 10px 0 var(--key);
+  }
+
+  45% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 2px 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+
+  54% {
+    box-shadow: 15px 0 0 var(--key), 30px 2px 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+
+  63% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 12px 0 var(--key);
+  }
+
+  72% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 2px 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+
+  81% {
+    box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 12px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);
+  }
+}
